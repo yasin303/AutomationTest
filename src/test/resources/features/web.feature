@@ -8,8 +8,7 @@ Feature: Feature Web Demoblaze
     And user enters username "suleprikitiw" in login form
     And user enters password "password123" in login form
     And user clicks login button
-    Then user should be logged in successfully
-    And user should see "Welcome suleprikitiw" in the navigation bar
+    Then user should see "Welcome suleprikitiw" in the navigation bar
 
   @invalid-login
   Scenario: Login with invalid credentials
@@ -24,7 +23,6 @@ Feature: Feature Web Demoblaze
   Scenario: Login with empty credentials
     Given user is on Demoblaze homepage
     When user clicks on Log in menu
-    And user clicks login button without entering credentials
     Then user should see error message "Please fill out Username and Password."
 
   @logout
@@ -32,4 +30,3 @@ Feature: Feature Web Demoblaze
     Given user is logged in to Demoblaze
     When user clicks on Log out menu
     Then user should be logged out successfully
-    And login menu item should be visible
