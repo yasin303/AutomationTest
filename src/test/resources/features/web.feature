@@ -26,6 +26,24 @@ Feature: Feature Web Demoblaze
     And user clicks login button
     Then user should see invalid error message "Please fill out Username and Password."
 
+  @successful-checkout
+  Scenario: Successfully checkout items
+    Given user is logged in to Demoblaze
+    When user clicks on "Samsung galaxy s6" product
+    And user clicks Add to Cart button
+    And user accepts product added popup
+    And user clicks on Cart menu
+    And user clicks Place Order button
+    And user fills order form with following details
+      | Name    | John Doe        |
+      | Country | United States   |
+      | City    | New York        |
+      | Card    | 4111111111111111|
+      | Month   | 12              |
+      | Year    | 2025            |
+    And user clicks Purchase button
+    Then user should see success message "Thank you for your purchase!"
+
   @logout
   Scenario: Successfully logout from the application
     Given user is logged in to Demoblaze
