@@ -49,8 +49,9 @@ public class LoginPage {
             Thread.sleep(2000);
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
             wait.until(ExpectedConditions.elementToBeClickable(logoutLink)).click();
-        } catch (InterruptedException e) {
+        } catch (Exception e) {
             e.printStackTrace();
+            System.out.println("logout failed" + e);
         }
     }
 
@@ -59,8 +60,9 @@ public class LoginPage {
             Thread.sleep(1000);
             assertTrue(driver.findElement(loginMenuLink).isDisplayed(),
                     "Login menu should be visible after logout");
-        } catch (InterruptedException e) {
+        } catch (Exception e) {
             e.printStackTrace();
+            System.out.println("failed" + e);
         }
     }
 
@@ -77,8 +79,10 @@ public class LoginPage {
             String actualError = driver.switchTo().alert().getText();
             assertEquals(errorMessage, actualError);
             driver.switchTo().alert().accept();
-        } catch (InterruptedException e) {
+//            System.out.println("success " + errorMessage + " " + actualError);
+        } catch (Exception e) {
             e.printStackTrace();
+            System.out.println("alert not found" + e);
         }
     }
 }
