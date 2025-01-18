@@ -33,10 +33,12 @@ public class LoginPage {
     }
 
     public void enterUsername(String username) {
+        driver.findElement(usernameInput).clear();
         driver.findElement(usernameInput).sendKeys(username);
     }
 
     public void enterPassword(String password) {
+        driver.findElement(passwordInput).clear();
         driver.findElement(passwordInput).sendKeys(password);
     }
 
