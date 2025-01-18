@@ -1,4 +1,4 @@
-package com.yasin.stepdef;
+package com.yasin.Webstepdef;
 
 import com.yasin.BaseTest;
 import io.cucumber.datatable.DataTable;
