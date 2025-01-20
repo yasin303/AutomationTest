@@ -17,6 +17,13 @@ dependencies {
     testImplementation("io.cucumber:cucumber-junit:7.15.0")
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.11.4")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.11.4")
+
+    testImplementation("io.rest-assured:rest-assured:5.5.0")
+    testImplementation("org.json:json:20240303")
+    testImplementation("io.rest-assured:json-path:5.5.0")
+    testImplementation("io.rest-assured:json-schema-validator:5.5.0")
+    testImplementation("org.assertj:assertj-core:3.27.2")
+
 }
 
 val cucumberRuntime: Configuration by configurations.creating {
