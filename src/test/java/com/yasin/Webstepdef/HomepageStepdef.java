@@ -3,8 +3,8 @@ package com.yasin.Webstepdef;
 import com.yasin.BaseTest;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
-import page.CartPage;
-import page.HomePage;
+import page.Web.CartPage;
+import page.Web.HomePage;
 
 public class HomepageStepdef extends BaseTest {
     HomePage homePage;

@@ -1,4 +1,4 @@
-package page;
+package page.Web;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;

@@ -3,7 +3,7 @@ package com.yasin.Webstepdef;
 import com.yasin.BaseTest;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.When;
-import page.ProductPage;
+import page.Web.ProductPage;
 
 public class ProductStepdef extends BaseTest {
     ProductPage productPage;
