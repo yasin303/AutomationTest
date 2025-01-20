@@ -1,7 +1,6 @@
-@login
+@web
 Feature: Feature Web Demoblaze
 
-  @valid-login
   Scenario: Login with valid credentials
     Given user is on Demoblaze homepage
     When user clicks on Log in menu
@@ -10,7 +9,6 @@ Feature: Feature Web Demoblaze
     And user clicks login button
     Then user is on homepage should see Welcome in the navigation bar
 
-  @invalid-login
   Scenario: Login with invalid credentials
     Given user is on Demoblaze homepage
     When user clicks on Log in menu
@@ -19,14 +17,12 @@ Feature: Feature Web Demoblaze
     And user clicks login button
     Then user should see invalid error message "User does not exist."
 
-  @empty-credentials
   Scenario: Login with empty credentials
     Given user is on Demoblaze homepage
     When user clicks on Log in menu
     And user clicks login button
     Then user should see invalid error message "Please fill out Username and Password."
 
-  @successful-checkout
   Scenario: Successfully checkout items
     Given user is logged in to Demoblaze
     When user clicks on "Samsung galaxy s6" product
@@ -44,7 +40,6 @@ Feature: Feature Web Demoblaze
     And user clicks Purchase button
     Then user should see success message "Thank you for your purchase!"
 
-  @logout
   Scenario: Successfully logout from the application
     Given user is logged in to Demoblaze
     When user clicks on Log out menu
