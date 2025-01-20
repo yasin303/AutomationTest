@@ -22,3 +22,25 @@ dependencies {
 tasks.test {
     useJUnit()
 }
+
+tasks.register<Test>("cucumberApiTests") {
+    description = "Execute cucumber tests with @api tag"
+
+    systemProperty("cucumber.filter.tags", "@api")
+    systemProperty("cucumber.features", "src/test/resources/apifeature")
+    systemProperty("cucumber.glue", "com.yasin.Apistepdef")
+
+    useJUnit()
+    testLogging.showStandardStreams = true
+}
+
+tasks.register<Test>("cucumberWebTests") {
+    description = "Execute cucumber tests with @web tag"
+
+    systemProperty("cucumber.filter.tags", "@web")
+    systemProperty("cucumber.features", "src/test/resources/webfeature")
+    systemProperty("cucumber.glue", "com.yasin.Webstepdef")
+
+    useJUnit()
+    testLogging.showStandardStreams = true
+}
