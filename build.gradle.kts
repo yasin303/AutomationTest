@@ -19,28 +19,52 @@ dependencies {
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.11.4")
 }
 
+val cucumberRuntime: Configuration by configurations.creating {
+    extendsFrom(configurations["testImplementation"])
+}
+
 tasks.test {
     useJUnit()
 }
 
-tasks.register<Test>("cucumberApiTests") {
-    description = "Execute cucumber tests with @api tag"
-
-    systemProperty("cucumber.filter.tags", "@api")
-    systemProperty("cucumber.features", "src/test/resources/apifeature")
-    systemProperty("cucumber.glue", "com.yasin.Apistepdef")
-
-    useJUnit()
-    testLogging.showStandardStreams = true
+tasks.register("apirun") {
+    description = "Running API Test"
+    dependsOn("assemble", "testClasses")
+    doLast {
+        javaexec {
+            mainClass.set("io.cucumber.core.cli.Main")
+            classpath = configurations.getByName("cucumberRuntime") +
+                    sourceSets.main.get().output +
+                    sourceSets.test.get().output
+            args = listOf(
+                "--plugin", "html:reports/api/index.html",
+                "--plugin", "json:reports/api/index.json",
+                "--plugin", "pretty",
+                "--glue", "com.yasin.Apistepdef",
+                "--tags", "@api",
+                "src/test/resources/apifeature"
+            )
+        }
+    }
 }
 
-tasks.register<Test>("cucumberWebTests") {
-    description = "Execute cucumber tests with @web tag"
-
-    systemProperty("cucumber.filter.tags", "@web")
-    systemProperty("cucumber.features", "src/test/resources/webfeature")
-    systemProperty("cucumber.glue", "com.yasin.Webstepdef")
-
-    useJUnit()
-    testLogging.showStandardStreams = true
+tasks.register("webrun") {
+    description = "Running Web Test"
+    dependsOn("assemble", "testClasses")
+    doLast {
+        javaexec {
+            mainClass.set("io.cucumber.core.cli.Main")
+            classpath = configurations.getByName("cucumberRuntime") +
+                    sourceSets.main.get().output +
+                    sourceSets.test.get().output
+            args = listOf(
+                "--plugin", "html:reports/web/index.html",
+                "--plugin", "json:reports/web/index.json",
+                "--plugin", "pretty",
+                "--glue", "com.yasin.Webstepdef",
+                "--tags", "@web",
+                "src/test/resources/webfeature"
+            )
+        }
+    }
 }
