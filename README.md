@@ -1,6 +1,6 @@
-# SeleniumProject
+# Selenium Project to Automate Test API and Web 
 
-### README: Automation Test API dan Web Menggunakan Cucumber, Java, Gradle, dan Selenium
+### README : Automation Test API dan Web Menggunakan Cucumber, Java, Gradle, dan Selenium
 
 #### **Deskripsi Proyek**
 Proyek ini adalah kerangka kerja untuk testing automation UI Web dan API menggunakan **Rest-Assured**, **Cucumber**, **Java**, **Gradle**, dan **Selenium**. 
