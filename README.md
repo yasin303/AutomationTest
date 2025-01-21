@@ -1,9 +1,9 @@
 # SeleniumProject
 
-### README: Kerangka Uji UI Web Menggunakan Cucumber, Java, Gradle, dan Selenium
+### README: Automation Test API dan Web Menggunakan Cucumber, Java, Gradle, dan Selenium
 
 #### **Deskripsi Proyek**
-Proyek ini adalah kerangka kerja untuk testing automation UI menggunakan **Cucumber**, **Java**, **Gradle**, dan **Selenium**. 
+Proyek ini adalah kerangka kerja untuk testing automation UI Web dan API menggunakan **Rest-Assured**, **Cucumber**, **Java**, **Gradle**, dan **Selenium**. 
 Dengan menerapkan pola **Page Object Model (POM)** untuk memisahkan logika eksekusi case dari testing. 
 
 #### **Fitur**
@@ -24,14 +24,23 @@ Dengan menerapkan pola **Page Object Model (POM)** untuk memisahkan logika eksek
    cd <repository-folder>
    ```
 2. Jalankan semua pengujian:
+   - `API Test`
    ```bash
-   ./gradlew test
+   ./gradlew apirun
    ```
-3. Lihat laporan hasil pengujian di folder `project/reports`.
+   
+   - `WEB Test`
+   ```bash
+   ./gradlew webrun
+   ```
+3. Lihat laporan hasil pengujian untuk `API` 
+di folder `project\reports\api` 
+dan jika untuk `WEB` di folder `project\reports\api`.
 
 #### **Teknologi yang Digunakan**
 - **Java**
 - **Gradle**
+- **Rest-Assured**
 - **Cucumber**
 - **Selenium**
 - **WebDriverManager**
