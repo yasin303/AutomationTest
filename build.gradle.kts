@@ -26,12 +26,15 @@ dependencies {
 
 }
 
-val cucumberRuntime: Configuration by configurations.creating {
-    extendsFrom(configurations["testImplementation"])
-}
-
 tasks.test {
     useJUnit()
+    systemProperty("cucumber.filter.tags", System.getProperty("cucumber.filter.tags"))
+}
+
+configurations {
+    create("cucumberRuntime") {
+        extendsFrom(configurations["testImplementation"])
+    }
 }
 
 tasks.register("apirun") {
@@ -44,8 +47,8 @@ tasks.register("apirun") {
                     sourceSets.main.get().output +
                     sourceSets.test.get().output
             args = listOf(
-                "--plugin", "html:reports/api/index.html",
-                "--plugin", "json:reports/api/index.json",
+                "--plugin", "html:reports/api/report.html",
+                "--plugin", "json:reports/api/report.json",
                 "--plugin", "pretty",
                 "--glue", "com.yasin.Apistepdef",
                 "--tags", "@api",
@@ -65,8 +68,8 @@ tasks.register("webrun") {
                     sourceSets.main.get().output +
                     sourceSets.test.get().output
             args = listOf(
-                "--plugin", "html:reports/web/index.html",
-                "--plugin", "json:reports/web/index.json",
+                "--plugin", "html:reports/web/report.html",
+                "--plugin", "json:reports/web/report.json",
                 "--plugin", "pretty",
                 "--glue", "com.yasin.Webstepdef",
                 "--tags", "@web",
