@@ -9,7 +9,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
 
     steps:
     # download repo
@@ -21,6 +21,9 @@ jobs:
       with:
         java-version: '17'
         distribution: 'temurin'
+
+    - name: Build Project
+      run: ./gradlew build
 
     # install browser
     - name: Setup Chrome
@@ -37,9 +40,6 @@ jobs:
     # debug
     - name: List files in build directory
       run: ls -R build
-
-    - name: Build Project
-      run: ./gradlew build
 
     - name: Debug Report Location
       run: find build -name "report.html"
