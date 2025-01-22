@@ -34,15 +34,9 @@ jobs:
     - name: Execute test
       run: ./gradlew apirun
 
-    # debug
-    - name: List files in build directory
-      run: ls -R build
-
-    - name: Debug Report Location
-      run: find build -name "report.html"
-
-    - name: Upload Report
+    # Upload HTML report as an artifact
+    - name: Upload HTML Report
       uses: actions/upload-artifact@v3
       with:
         name: report
-        path: build/reports/web/report.html
+        path: reports/api
