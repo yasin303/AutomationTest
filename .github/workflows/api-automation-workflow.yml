@@ -38,10 +38,14 @@ jobs:
     - name: List files in build directory
       run: ls -R build
 
-    # Upload HTML report as an artifact
-    - name: Upload HTML Report
+    - name: Build Project
+      run: ./gradlew build
+
+    - name: Debug Report Location
+      run: find build -name "report.html"
+
+    - name: Upload Report
       uses: actions/upload-artifact@v3
       with:
         name: report
-        path: build/reports/api
-
+        path: build/reports/web/report.html
