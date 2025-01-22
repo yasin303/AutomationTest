@@ -32,3 +32,10 @@ jobs:
     # gradle command for running
     - name: Execute test
       run: ./gradlew webrun
+
+    # Upload HTML report as an artifact
+    - name: Upload HTML Report
+      uses: actions/upload-artifact@v3
+      with:
+        name: html-report-web
+        path: build/reports/artifact
