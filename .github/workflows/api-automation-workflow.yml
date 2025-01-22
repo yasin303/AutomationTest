@@ -33,6 +33,10 @@ jobs:
     - name: Execute test
       run: ./gradlew apirun
 
+    # debug
+    - name: List files in build directory
+      run: ls -R build
+
     # Upload HTML report as an artifact
     - name: Upload HTML Report
       uses: actions/upload-artifact@v3
