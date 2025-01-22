@@ -38,5 +38,5 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: report
-        path: build/reports/api
+        path: build/reports/api/report.html
 
