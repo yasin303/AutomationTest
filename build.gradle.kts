@@ -28,7 +28,7 @@ dependencies {
 
 tasks.test {
     useJUnit()
-    systemProperty("cucumber.filter.tags", System.getProperty("cucumber.filter.tags"))
+    // systemProperty("cucumber.filter.tags", System.getProperty("cucumber.filter.tags"))
 }
 
 configurations {
@@ -43,9 +43,11 @@ tasks.register("apirun") {
     doLast {
         javaexec {
             mainClass.set("io.cucumber.core.cli.Main")
-            classpath = configurations.getByName("cucumberRuntime") +
-                    sourceSets.main.get().output +
-                    sourceSets.test.get().output
+            classpath = files(
+                configurations["cucumberRuntime"],
+                sourceSets["main"].output,
+                sourceSets["test"].output
+            )
             args = listOf(
                 "--plugin", "html:reports/api/report.html",
                 "--plugin", "json:reports/api/report.json",
